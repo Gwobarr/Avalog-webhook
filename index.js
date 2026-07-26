@@ -9,7 +9,7 @@ if (!process.env.WEBHOOK) {
 
 const WEBHOOK = process.env.WEBHOOK;
 app.get("/",(_,res)=>res.send("Avalog Webhook Online"));
-app.post("/purchase",async(req,res)=>{
+app.post(["/sale", "/purchase"], async (req, res) => {
  const d=req.body;
  const embed={title:"🛒 Avatar Catalog Purchase",color:0x00ff66,fields:[
  {name:"Experience ID",value:String(d.experienceId||"Unknown")},
