@@ -11,6 +11,7 @@ const WEBHOOK = process.env.WEBHOOK;
 app.get("/",(_,res)=>res.send("Avalog Webhook Online"));
 app.post(["/sale", "/purchase"], async (req, res) => {
  const d=req.body;
+ console.log("Webhook menerima:", d);
  const embed={title:"🛒 Avatar Catalog Purchase",color:0x00ff66,fields:[
  {name:"Experience ID",value:String(d.experienceId||"Unknown")},
  {name:"Item ID",value:String(d.itemId||"Unknown"),inline:true},
